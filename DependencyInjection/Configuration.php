@@ -17,9 +17,9 @@ class Configuration implements ConfigurationInterface
      */
     public function getConfigTreeBuilder()
     {
-        $treeBuilder = new TreeBuilder();
-        $rootNode = $treeBuilder->root('artprima_forms_extra');
-
+        $treeBuilder = new TreeBuilder('artprima_forms_extra');
+        
+        $rootNode = $treeBuilder->getRootNode();
         $rootNode
             ->children()
                 ->scalarNode('twig_form_widget')

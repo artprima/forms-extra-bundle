@@ -34,7 +34,7 @@ class HiddenEntityType extends AbstractType
     /**
      * @inheritdoc
      */
-    public function buildForm(FormBuilderInterface $builder, array $options)
+    public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $transformer = new EntityToIdTransformer($this->objectManager, $options['class']);
         $builder->addViewTransformer($transformer);
@@ -43,7 +43,7 @@ class HiddenEntityType extends AbstractType
     /**
      * {@inheritdoc}
      */
-    public function buildView(FormView $view, FormInterface $form, array $options)
+    public function buildView(FormView $view, FormInterface $form, array $options): void
     {
         $view->vars['visible'] = $form->getConfig()->getOption('visible');
         $displayText = $form->getConfig()->getOption('display_text');
@@ -55,7 +55,7 @@ class HiddenEntityType extends AbstractType
     /**
      * @inheritdoc
      */
-    public function configureOptions(OptionsResolver $resolver)
+    public function configureOptions(OptionsResolver $resolver): void
     {
         $resolver
             ->setRequired(array('class'))
@@ -70,7 +70,7 @@ class HiddenEntityType extends AbstractType
     /**
      * @inheritdoc
      */
-    public function getParent()
+    public function getParent(): string
     {
         return HiddenType::class;
     }
